@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E087E5A7265EDA42003FFEE0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E087E5A6265EDA42003FFEE0 /* SecondViewController.swift */; };
 		E0AD84DE265D609E00D79B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD84DD265D609E00D79B65 /* AppDelegate.swift */; };
 		E0AD84E0265D609E00D79B65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD84DF265D609E00D79B65 /* SceneDelegate.swift */; };
 		E0AD84E2265D609E00D79B65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD84E1265D609E00D79B65 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E087E5A6265EDA42003FFEE0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E0AD84DA265D609E00D79B65 /* LogonProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogonProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AD84DD265D609E00D79B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0AD84DF265D609E00D79B65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				E0AD84DF265D609E00D79B65 /* SceneDelegate.swift */,
 				E0AD84E1265D609E00D79B65 /* ViewController.swift */,
 				E0AD84E3265D609E00D79B65 /* Main.storyboard */,
+				E087E5A6265EDA42003FFEE0 /* SecondViewController.swift */,
 				E0AD84E6265D60A000D79B65 /* Assets.xcassets */,
 				E0AD84E8265D60A000D79B65 /* LaunchScreen.storyboard */,
 				E0AD84EB265D60A000D79B65 /* Info.plist */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E087E5A7265EDA42003FFEE0 /* SecondViewController.swift in Sources */,
 				E0AD84E2265D609E00D79B65 /* ViewController.swift in Sources */,
 				E0AD84DE265D609E00D79B65 /* AppDelegate.swift in Sources */,
 				E0AD84E0265D609E00D79B65 /* SceneDelegate.swift in Sources */,
@@ -289,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BJNJ35894G;
 				INFOPLIST_FILE = LogonProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BJNJ35894G;
 				INFOPLIST_FILE = LogonProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
