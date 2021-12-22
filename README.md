@@ -1,5 +1,5 @@
-# Funny Dogs 🐶
->iOS application based on Dog CEO API written in Swift
+# About Cats! 🐈‍⬛
+>iOS application based on TheCatAPI written in Swift
 
 Without ~~Storyboards~~, completely programatically
 
