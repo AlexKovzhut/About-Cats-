@@ -7,22 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E087E5A7265EDA42003FFEE0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E087E5A6265EDA42003FFEE0 /* SecondViewController.swift */; };
 		E0AD84DE265D609E00D79B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD84DD265D609E00D79B65 /* AppDelegate.swift */; };
-		E0AD84E0265D609E00D79B65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD84DF265D609E00D79B65 /* SceneDelegate.swift */; };
 		E0AD84E2265D609E00D79B65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD84E1265D609E00D79B65 /* ViewController.swift */; };
-		E0AD84E5265D609E00D79B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AD84E3265D609E00D79B65 /* Main.storyboard */; };
 		E0AD84E7265D60A000D79B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0AD84E6265D60A000D79B65 /* Assets.xcassets */; };
 		E0AD84EA265D60A000D79B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AD84E8265D60A000D79B65 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E087E5A6265EDA42003FFEE0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		E0AD84DA265D609E00D79B65 /* LogonProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogonProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0AD84DA265D609E00D79B65 /* Funny Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Funny Dogs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AD84DD265D609E00D79B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E0AD84DF265D609E00D79B65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E0AD84E1265D609E00D79B65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E0AD84E4265D609E00D79B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0AD84E6265D60A000D79B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0AD84E9265D60A000D79B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0AD84EB265D60A000D79B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +36,7 @@
 		E0AD84D1265D609E00D79B65 = {
 			isa = PBXGroup;
 			children = (
-				E0AD84DC265D609E00D79B65 /* LogonProject */,
+				E0AD84DC265D609E00D79B65 /* Funny Dogs */,
 				E0AD84DB265D609E00D79B65 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,56 +44,45 @@
 		E0AD84DB265D609E00D79B65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E0AD84DA265D609E00D79B65 /* LogonProject.app */,
+				E0AD84DA265D609E00D79B65 /* Funny Dogs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E0AD84DC265D609E00D79B65 /* LogonProject */ = {
+		E0AD84DC265D609E00D79B65 /* Funny Dogs */ = {
 			isa = PBXGroup;
 			children = (
-				E0ADA6202662322C009375F9 /* Storyboards */,
-				E0ADA61F26623215009375F9 /* ViewControllers */,
-				E0ADA61E26623204009375F9 /* Assets */,
-				E0AD84DD265D609E00D79B65 /* AppDelegate.swift */,
-				E0AD84DF265D609E00D79B65 /* SceneDelegate.swift */,
-				E0AD84EB265D60A000D79B65 /* Info.plist */,
+				E0ADA61F26623215009375F9 /* View Controllers */,
+				E0ADA61E26623204009375F9 /* Resources */,
 			);
-			path = LogonProject;
+			path = "Funny Dogs";
 			sourceTree = "<group>";
 		};
-		E0ADA61E26623204009375F9 /* Assets */ = {
+		E0ADA61E26623204009375F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E0AD84EB265D60A000D79B65 /* Info.plist */,
+				E0AD84DD265D609E00D79B65 /* AppDelegate.swift */,
+				E0AD84E8265D60A000D79B65 /* LaunchScreen.storyboard */,
 				E0AD84E6265D60A000D79B65 /* Assets.xcassets */,
 			);
-			path = Assets;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		E0ADA61F26623215009375F9 /* ViewControllers */ = {
+		E0ADA61F26623215009375F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E087E5A6265EDA42003FFEE0 /* SecondViewController.swift */,
 				E0AD84E1265D609E00D79B65 /* ViewController.swift */,
 			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E0ADA6202662322C009375F9 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				E0AD84E3265D609E00D79B65 /* Main.storyboard */,
-				E0AD84E8265D60A000D79B65 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E0AD84D9265D609E00D79B65 /* LogonProject */ = {
+		E0AD84D9265D609E00D79B65 /* Funny Dogs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E0AD84EE265D60A000D79B65 /* Build configuration list for PBXNativeTarget "LogonProject" */;
+			buildConfigurationList = E0AD84EE265D60A000D79B65 /* Build configuration list for PBXNativeTarget "Funny Dogs" */;
 			buildPhases = (
 				E0AD84D6265D609E00D79B65 /* Sources */,
 				E0AD84D7265D609E00D79B65 /* Frameworks */,
@@ -109,9 +92,9 @@
 			);
 			dependencies = (
 			);
-			name = LogonProject;
+			name = "Funny Dogs";
 			productName = LogonProject;
-			productReference = E0AD84DA265D609E00D79B65 /* LogonProject.app */;
+			productReference = E0AD84DA265D609E00D79B65 /* Funny Dogs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E0AD84D5265D609E00D79B65 /* Build configuration list for PBXProject "LogonProject" */;
+			buildConfigurationList = E0AD84D5265D609E00D79B65 /* Build configuration list for PBXProject "Funny Dogs" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E0AD84D9265D609E00D79B65 /* LogonProject */,
+				E0AD84D9265D609E00D79B65 /* Funny Dogs */,
 			);
 		};
 /* End PBXProject section */
@@ -153,7 +136,6 @@
 			files = (
 				E0AD84EA265D60A000D79B65 /* LaunchScreen.storyboard in Resources */,
 				E0AD84E7265D60A000D79B65 /* Assets.xcassets in Resources */,
-				E0AD84E5265D609E00D79B65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,24 +146,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E087E5A7265EDA42003FFEE0 /* SecondViewController.swift in Sources */,
 				E0AD84E2265D609E00D79B65 /* ViewController.swift in Sources */,
 				E0AD84DE265D609E00D79B65 /* AppDelegate.swift in Sources */,
-				E0AD84E0265D609E00D79B65 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E0AD84E3265D609E00D79B65 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E0AD84E4265D609E00D79B65 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E0AD84E8265D60A000D79B65 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -244,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -299,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -316,16 +288,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BJNJ35894G;
-				INFOPLIST_FILE = LogonProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				INFOPLIST_FILE = "Funny Dogs/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = LogonProject.LogonProject;
+				PRODUCT_BUNDLE_IDENTIFIER = FunnyDogs.FunnyDogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -336,23 +308,23 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BJNJ35894G;
-				INFOPLIST_FILE = LogonProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				INFOPLIST_FILE = "Funny Dogs/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = LogonProject.LogonProject;
+				PRODUCT_BUNDLE_IDENTIFIER = FunnyDogs.FunnyDogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E0AD84D5265D609E00D79B65 /* Build configuration list for PBXProject "LogonProject" */ = {
+		E0AD84D5265D609E00D79B65 /* Build configuration list for PBXProject "Funny Dogs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0AD84EC265D60A000D79B65 /* Debug */,
@@ -361,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E0AD84EE265D60A000D79B65 /* Build configuration list for PBXNativeTarget "LogonProject" */ = {
+		E0AD84EE265D60A000D79B65 /* Build configuration list for PBXNativeTarget "Funny Dogs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0AD84EF265D60A000D79B65 /* Debug */,
