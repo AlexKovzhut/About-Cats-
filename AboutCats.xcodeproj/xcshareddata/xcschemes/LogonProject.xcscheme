@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E0AD84D9265D609E00D79B65"
-               BuildableName = "Funny Cats.app"
-               BlueprintName = "About Cats!"
-               ReferencedContainer = "container:About Cats!.xcodeproj">
+               BuildableName = "About Cats!.app"
+               BlueprintName = "AboutCats"
+               ReferencedContainer = "container:AboutCats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0AD84D9265D609E00D79B65"
             BuildableName = "About Cats!.app"
-            BlueprintName = "About Cats!"
-            ReferencedContainer = "container:About Cats!.xcodeproj">
+            BlueprintName = "AboutCats"
+            ReferencedContainer = "container:AboutCats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0AD84D9265D609E00D79B65"
-            BuildableName = "Funny Cats.app"
-            BlueprintName = "About Cats!"
-            ReferencedContainer = "container:About Cats!.xcodeproj">
+            BuildableName = "About Cats!.app"
+            BlueprintName = "AboutCats"
+            ReferencedContainer = "container:AboutCats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
