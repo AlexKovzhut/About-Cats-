@@ -8,15 +8,16 @@
 import UIKit
 
 class TableViewController: UIViewController {
-    
     // MARK: - Private properties
-    private var cats: Cats?
-    
     private let tableView = UITableView()
     private let searchController = UISearchController(searchResultsController: nil)
-    private var filteredAnimal: [Result] = []
+    
+    private var breedColletion: [BreedElement]?
+    private var breed: BreedElement?
+    private var filteredBreed: [BreedElement] = []
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
+        
         return text.isEmpty
     }
     private var isFiltering: Bool {
@@ -32,7 +33,7 @@ class TableViewController: UIViewController {
         setupSearchController()
         setupStyle()
         setupLayout()
-        fetchData(from: URLS.catsAPI.rawValue)
+        fetchData()
     }
     
     // MARK: - Bar Button Actions
@@ -42,9 +43,8 @@ class TableViewController: UIViewController {
     
     @objc private func updateBarButtonPressed() {
         print(#function)
+        tableView.reloadData()
     }
-    
-    
 }
 
     // MARK: - Private Methods
@@ -55,7 +55,6 @@ extension TableViewController {
     }
     
     private func setupNavigationBar() {
-        let titleLabel = UILabel()
         let leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .organize,
             target: self,
@@ -67,31 +66,25 @@ extension TableViewController {
             action: #selector(updateBarButtonPressed)
         )
         
-        titleLabel.text = "Table View"
         leftBarButtonItem.tintColor = .black
         rightBarButtonItem.tintColor = .black
-                
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "About cats!"
+        
+        navigationItem.searchController = searchController
         navigationItem.leftBarButtonItem = leftBarButtonItem
         navigationItem.rightBarButtonItem = rightBarButtonItem
-        navigationItem.titleView = titleLabel
     }
     
     private func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        
-        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-            textField.font = UIFont.boldSystemFont(ofSize: 17)
-        }
+        searchController.searchBar.placeholder = "Find a cat breed..."
     }
     
     private func setupStyle() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.rowHeight = 100
+        tableView.rowHeight = 130
     }
     
     private func setupLayout() {
@@ -99,54 +92,33 @@ extension TableViewController {
         tableView.pin(to: view)
     }
     
-    private func fetchData(from url: String?) {
-        NetworkManager.shared.fetchData(from: url) {  cats in
+    private func fetchData() {
+        NetworkManager.shared.fetchData() { breed in
             DispatchQueue.main.async {
-                self.cats = cats
+                self.breedColletion = breed
                 self.tableView.reloadData()
             }
         }
     }
 }
 
-// MARK: - UITableViewDelegate
-extension TableViewController: UITableViewDataSource {
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension TableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering ? filteredAnimal.count : cats?.results.count ?? 0
+        return isFiltering ? filteredBreed.count : breedColletion?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
         
-        let result = isFiltering ? filteredAnimal[indexPath.row] : cats?.results[indexPath.row]
-        cell.configure(with: result)
+        let searchResult = isFiltering ? filteredBreed[indexPath.row] : breedColletion?[indexPath.row]
+        cell.configure(with: searchResult!)
         
         return cell
     }
-}
-
-// MARK: - UITableViewDelegate
-extension TableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let cat = isFiltering ? filteredAnimal[indexPath.row] : cats?.results[indexPath.row]
-        let detailVC = DetailViewController()
-        show(detailVC, sender: self)
-        detailVC.animalURL = cat?.image.url
-    }
-}
-
-// MARK: - UISearchResultsUpdating
-extension TableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
     
-    private func filterContentForSearchText(_ searchText: String) {
-        filteredAnimal = cats?.results.filter { chracter in
-            chracter.name.lowercased().contains(searchText.lowercased())
-        } ?? []
-        
-        tableView.reloadData()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destination = DetailViewController()
+        navigationController?.pushViewController(destination, animated: true)
     }
 }

@@ -1,11 +1,11 @@
 //
 //  ImageManager.swift
-//  About Cats!
+//  AboutCats
 //
-//  Created by Alexander Kovzhut on 22.12.2021.
+//  Created by Alexander Kovzhut on 25.12.2021.
 //
 
-import Foundation
+import UIKit
 
 class ImageManager {
     static var shared = ImageManager()

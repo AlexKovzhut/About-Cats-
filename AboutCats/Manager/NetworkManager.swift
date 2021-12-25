@@ -10,13 +10,13 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     
-    private init() {}
-    
-    func fetchData(from url: String?, with complition: @escaping (Cats) -> Void) {
-        guard let stringURL = url else { return }
-        guard let url = URL(string: stringURL) else { return }
+    func fetchData(with complition: @escaping ([BreedElement]) -> Void) {
+        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 print(error)
                 return
@@ -25,34 +25,14 @@ class NetworkManager {
             guard let data = data else { return }
             
             do {
-                let cats = try JSONDecoder().decode(Cats.self, from: data)
+                let breeds = try JSONDecoder().decode([BreedElement].self, from: data)
                 DispatchQueue.main.async {
-                    complition(cats)
+                    complition(breeds)
                 }
             } catch let error {
                 print(error)
             }
             
-        }.resume()
-    }
-    
-    func fetchResult(from url: String, completion: @escaping(Result) -> Void) {
-        guard let url = URL(string: url) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "no descripption")
-                return
-            }
-            
-            do {
-                let result = try JSONDecoder().decode(Result.self, from: data)
-                DispatchQueue.main.async {
-                    completion(result)
-                }
-            } catch let error {
-                print(error)
-            }
         }.resume()
     }
 }

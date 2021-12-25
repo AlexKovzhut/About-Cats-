@@ -1,18 +1,17 @@
 //
 //  DetailViewController.swift
-//  About Cats!
+//  AboutCats
 //
-//  Created by Alexander Kovzhut on 22.12.2021.
+//  Created by Alexander Kovzhut on 25.12.2021.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController {
-    var result: Result?
-    var animalURL: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .purple
     }
 }
