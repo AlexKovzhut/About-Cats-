@@ -13,11 +13,9 @@ class TableViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var breedColletion: [BreedElement]?
-    private var breed: BreedElement?
     private var filteredBreed: [BreedElement] = []
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
-        
         return text.isEmpty
     }
     private var isFiltering: Bool {
@@ -78,13 +76,23 @@ extension TableViewController {
     }
     
     private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Find a cat breed..."
+        searchController.searchBar.backgroundColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .systemPink
+        }
     }
     
     private func setupStyle() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.rowHeight = 130
+        tableView.rowHeight = 120
     }
     
     private func setupLayout() {
@@ -120,5 +128,20 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destination = DetailViewController()
         navigationController?.pushViewController(destination, animated: true)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension TableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredBreed = breedColletion?.filter { chracter in
+            chracter.name.lowercased().contains(searchText.lowercased())
+        } ?? []
+        
+        tableView.reloadData()
     }
 }

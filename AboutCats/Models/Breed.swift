@@ -8,6 +8,8 @@
 struct BreedElement: Codable {
     let name: String
     let image: BreedImage?
+    let origin: String
+    let temperament: String
 }
 
 struct BreedImage: Codable {
