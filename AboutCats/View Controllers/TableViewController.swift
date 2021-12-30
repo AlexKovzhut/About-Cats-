@@ -97,6 +97,7 @@ extension TableViewController {
     
     private func setupLayout() {
         view.addSubview(tableView)
+        
         tableView.pin(to: view)
     }
     
