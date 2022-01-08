@@ -102,7 +102,7 @@ extension TableViewController {
     }
     
     private func fetchData() {
-        NetworkManager.shared.fetchData() { breed in
+        NetworkManager.shared.fetchBreeds() { breed in
             DispatchQueue.main.async {
                 self.breedColletion = breed
                 self.tableView.reloadData()

@@ -10,7 +10,7 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     
-    func fetchData(with complition: @escaping ([BreedElement]) -> Void) {
+    func fetchBreeds(with complition: @escaping ([BreedElement]) -> Void) {
         guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else { return }
         
         var request = URLRequest(url: url)
@@ -33,6 +33,26 @@ class NetworkManager {
                 print(error)
             }
             
+        }.resume()
+    }
+    
+    func fetchBreed(from url: String, completion: @escaping(BreedElement) -> Void) {
+        guard let url = URL(string: url) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "no descripption")
+                return
+            }
+            
+            do {
+                let breed = try JSONDecoder().decode(BreedElement.self, from: data)
+                DispatchQueue.main.async {
+                    completion(breed)
+                }
+            } catch let error {
+                print(error)
+            }
         }.resume()
     }
 }
