@@ -127,8 +127,19 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destination = DetailViewController()
-        navigationController?.pushViewController(destination, animated: true)
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let breed = isFiltering ? filteredBreed[indexPath.row] : breedColletion?[indexPath.row]
+        
+        let destinationController = DetailViewController()
+        destinationController.breed = breed
+        
+        let navigationController = UINavigationController()
+        navigationController.addChild(destinationController)
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.modalPresentationStyle = .pageSheet
+        self.modalTransitionStyle = .coverVertical
+        self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
 }
 

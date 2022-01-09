@@ -9,15 +9,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
     // MARK: - Private properties
-    private let scrollView = UIScrollView()
+    private let backgroundScrollView = UIScrollView()
     private let imageView = BreedImageView()
     private let activityIndicator = UIActivityIndicatorView()
     private let nameLabel = UILabel()
     private let originLabel = UILabel()
     private let temperamentLabel = UILabel()
     
-    private var breed: BreedElement?
-    private var breedURL: String!
+    var breed: BreedElement?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +40,9 @@ extension DetailViewController {
     }
     
     private func setupStyle() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.alwaysBounceVertical = true
-        scrollView.backgroundColor = .white
-        //scrollView.alwaysBounceHorizontal = true
+        backgroundScrollView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundScrollView.alwaysBounceVertical = true
+        backgroundScrollView.backgroundColor = .white
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.isHidden = true
@@ -53,7 +51,6 @@ extension DetailViewController {
         activityIndicator.style = .large
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "xmark.app")
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -63,42 +60,33 @@ extension DetailViewController {
     }
     
     private func setupLayout() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(imageView)
+        view.addSubview(backgroundScrollView)
+        backgroundScrollView.addSubview(imageView)
         imageView.addSubview(activityIndicator)
-        scrollView.addSubview(nameLabel)
-        scrollView.addSubview(originLabel)
-        scrollView.addSubview(temperamentLabel)
+        backgroundScrollView.addSubview(nameLabel)
+        backgroundScrollView.addSubview(originLabel)
+        backgroundScrollView.addSubview(temperamentLabel)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: backgroundScrollView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: backgroundScrollView.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: backgroundScrollView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: backgroundScrollView.trailingAnchor),
             
             activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             
-            nameLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 15),
+            nameLabel.centerXAnchor.constraint(equalTo: backgroundScrollView.centerXAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: backgroundScrollView.centerYAnchor)
         ])
     }
     
     private func fetchData() {
-        NetworkManager.shared.fetchBreed(from: breedURL) { breed in
-            self.breed = breed
-            self.nameLabel.text = breed.name
-            self.originLabel.text = breed.origin
-            self.temperamentLabel.text = breed.temperament
-            
-            DispatchQueue.main.async {
-                self.imageView.fetchImage(from: (breed.image?.url)!)
-                self.activityIndicator.stopAnimating()
-            }
-        }
+        nameLabel.text = breed?.name
     }
 }
