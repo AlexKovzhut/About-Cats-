@@ -87,6 +87,13 @@ extension DetailViewController {
     }
     
     private func fetchData() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+
         nameLabel.text = breed?.name
+        
+        DispatchQueue.main.async {
+            
+        }
     }
 }
