@@ -10,12 +10,13 @@ import UIKit
 class DetailViewController: UIViewController {
     // MARK: - Private properties
     private let backgroundScrollView = UIScrollView()
-    private let imageView = BreedImageView()
+    private var imageView = BreedImageView()
     private let activityIndicator = UIActivityIndicatorView()
     private let nameLabel = UILabel()
     private let originLabel = UILabel()
     private let temperamentLabel = UILabel()
     
+    // MARK: - Public properties
     var breed: BreedElement?
     
     override func viewDidLoad() {
@@ -82,7 +83,15 @@ extension DetailViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
             
             nameLabel.centerXAnchor.constraint(equalTo: backgroundScrollView.centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: backgroundScrollView.centerYAnchor)
+            nameLabel.centerYAnchor.constraint(equalTo: backgroundScrollView.centerYAnchor),
+            
+            originLabel.centerXAnchor.constraint(equalTo: backgroundScrollView.centerXAnchor),
+            originLabel.centerYAnchor.constraint(equalTo: backgroundScrollView.centerYAnchor),
+            
+            temperamentLabel.centerXAnchor.constraint(equalTo: backgroundScrollView.centerXAnchor),
+            temperamentLabel.centerYAnchor.constraint(equalTo: backgroundScrollView.centerYAnchor),
+            
+            
         ])
     }
     
@@ -91,6 +100,8 @@ extension DetailViewController {
         activityIndicator.startAnimating()
 
         nameLabel.text = breed?.name
+        originLabel.text = breed?.origin
+        temperamentLabel.text = breed?.temperament
         
         DispatchQueue.main.async {
             
